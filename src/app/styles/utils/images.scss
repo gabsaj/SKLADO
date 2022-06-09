@@ -1,0 +1,17 @@
+/* 
+utils: images.scss
+*/
+.img {
+  //images
+  &--logo {
+    &--large {
+      content: url(../../assets/images/logo-large.svg);
+    }
+    &--small {
+      content: url(../../assets/images/logo-small.svg);
+    }
+  }
+  &--boxes {
+    content: url(../../assets/images/boxes.svg);
+  }
+}

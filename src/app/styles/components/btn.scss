@@ -1,0 +1,18 @@
+/* 
+components: btn.scss
+*/
+
+.btn {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: $border--round;
+  cursor: pointer;
+  &--nav {
+    width: 208px;
+    padding: 10px 15px;
+    gap: 20px;
+    color: $white;
+    background-color: $color--secondary;
+  }
+}

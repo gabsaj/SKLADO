@@ -1,0 +1,60 @@
+/* 
+utils: type.scss
+*/
+
+//fonts
+
+.type {
+  &--montserrat {
+    font-family: "Montserrat", sans-serif;
+    &--wgt {
+      &--extralight {
+        font-weight: 200;
+      }
+      &--light {
+        font-weight: 300;
+      }
+      &--regular {
+        font-weight: 400;
+      }
+      &--medium {
+        font-weight: 500;
+      }
+      &--semibold {
+        font-weight: 600;
+      }
+      &--bold {
+        font-weight: 700;
+      }
+      &--extrabold {
+        font-weight: 800;
+      }
+    }
+  }
+  &--nunito {
+    font-family: "Nunito", sans-serif;
+    &--wgt {
+      &--extralight {
+        font-weight: 200;
+      }
+      &--light {
+        font-weight: 300;
+      }
+      &--regular {
+        font-weight: 400;
+      }
+      &--medium {
+        font-weight: 500;
+      }
+      &--semibold {
+        font-weight: 600;
+      }
+      &--bold {
+        font-weight: 700;
+      }
+      &--extrabold {
+        font-weight: 800;
+      }
+    }
+  }
+}

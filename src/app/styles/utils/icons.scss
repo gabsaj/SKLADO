@@ -1,0 +1,61 @@
+/* 
+utils: icons.scss
+*/
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: $black;
+  mask-repeat: no-repeat;
+  mask-position: 50%;
+  transition: background-color 300ms ease-in-out;
+
+  //icon sizes
+  &--ty {
+    width: calc(#{$unit} * 3);
+    height: calc(#{$unit} * 3);
+  }
+  &--xs {
+    width: calc(#{$unit} * 4);
+    height: calc(#{$unit} * 4);
+  }
+  &--sm {
+    width: calc(#{$unit} * 5);
+    height: calc(#{$unit} * 5);
+  }
+  &--base {
+    width: calc(#{$unit} * 6);
+    height: calc(#{$unit} * 6);
+  }
+  &--md {
+    width: calc(#{$unit} * 8);
+    height: calc(#{$unit} * 8);
+  }
+
+  //icons
+  &--arrow {
+    mask-image: url(../../assets/icons/arrow.svg);
+  }
+  &--sort {
+    mask-image: url(../../assets/icons/sort.svg);
+  }
+  &--search {
+    mask-image: url(../../assets/icons/search.svg);
+  }
+  &--plus {
+    mask-image: url(../../assets/icons/plus.svg);
+  }
+  &--edit {
+    mask-image: url(../../assets/icons/edit.svg);
+  }
+  &--delete {
+    mask-image: url(../../assets/icons/delete.svg);
+  }
+  &--add {
+    mask-image: url(../../assets/icons/add.svg);
+  }
+  &--back {
+    mask-image: url(../../assets/icons/back.svg);
+  }
+}
