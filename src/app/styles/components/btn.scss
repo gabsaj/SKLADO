@@ -5,14 +5,38 @@ components: btn.scss
 .btn {
   display: flex;
   align-items: center;
+  text-align: center;
   border: none;
   border-radius: $border--round;
   cursor: pointer;
-  &--nav {
-    width: 208px;
-    padding: 10px 15px;
-    gap: 20px;
-    color: $white;
+  border-radius: 2px;
+  //styles
+  &--primary {
     background-color: $color--secondary;
+    color: $white;
+  }
+  &--secondary {
+    border: 2px solid $color--secondary;
+    color: $color--secondary;
+    display: flex;
+    justify-content: space-between;
+  }
+  &--tertiary {
+    border: 2px solid $color--qaternary;
+    color: $color--qaternary;
+  }
+
+  //sizes
+  &--s {
+    width: 208px;
+    height: 40px;
+  }
+  &--m {
+    width: 229px;
+    height: 48px;
+  }
+  &--l {
+    width: 528px;
+    height: 48px;
   }
 }

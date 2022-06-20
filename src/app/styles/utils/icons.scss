@@ -58,4 +58,15 @@ utils: icons.scss
   &--back {
     mask-image: url(../../assets/icons/back.svg);
   }
+
+  //colors
+  &--white {
+    background-color: $white;
+  }
+  &--blue {
+    background-color: $color--secondary;
+  }
+  &--grey {
+    background-color: $grey;
+  }
 }

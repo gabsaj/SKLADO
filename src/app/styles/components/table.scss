@@ -1,0 +1,23 @@
+/* 
+components: table.scss
+*/
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  th {
+    background-color: $white;
+    color: $color--secondary;
+  }
+  tr {
+    height: 45px;
+  }
+  & tr:nth-child(even) {
+    background-color: $grey;
+  }
+  & td:nth-child(4),
+  td:nth-child(5) {
+    width: 40px;
+  }
+}

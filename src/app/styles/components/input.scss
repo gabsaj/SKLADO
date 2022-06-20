@@ -1,0 +1,19 @@
+/* 
+components: input.scss
+*/
+
+.input {
+  height: 48px;
+  border: none;
+  border-radius: 2px;
+  &--primary {
+    width: 528px;
+    border: 1px solid $grey;
+  }
+  &--secondary {
+    outline: none;
+  }
+  &--tertiary {
+    width: 99px;
+  }
+}
