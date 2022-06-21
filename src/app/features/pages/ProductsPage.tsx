@@ -1,19 +1,36 @@
+import { useEffect, useState } from "react";
+import ProductService from "../../services/productService";
+import { Product } from "../../types/product";
+import Sidebar from "../components/Sidebar";
+import Table from "../components/Table";
+
 const ProductsPage = () => {
+  const [productsList, setProductsList] = useState<Product[]>([]);
+
+  const itemService = new ProductService();
+
+  const fetchProducts = async () => {
+    try {
+      const response = await itemService.getProducts();
+      setProductsList(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  console.log(productsList);
   return (
     <div>
       <div className="layout">
-        <div className="layout__side">
-          <img className="img--logo--small" alt="Logo-small" />
-          <button className="btn btn--primary btn--s py--10">
-            <i className="icon icon--base icon--add icon--white ml--16"></i>
-            <div className="ml--19">Add product</div>
-          </button>
-        </div>
+        <Sidebar />
         <div className="layout__main">
-          <div className="title type--montserrat type--wgt--semibold mt--32 ml--24">
+          <div className="title type--montserrat type--montserrat--wgt--semibold mt--32 ml--24">
             Start adding products!
           </div>
-          <div className="wrapper mr--24 mt--80">
+          <div className="wrapper ml--80 mt--80">
             <div className="search__container mr--16">
               <i className="icon  icon--base icon--search ml--16"></i>
               <input
@@ -33,30 +50,23 @@ const ProductsPage = () => {
           >
             <table className="mt--80">
               <tr>
-                <th>
+                <th className="pl--10">
                   Barcode
                   <i className="icon icon--base icon--sort icon--grey"></i>
                 </th>
-                <th>
+                <th className="pl--10">
                   Name
                   <i className="icon icon--base icon--sort icon--grey"></i>
                 </th>
-                <th>
+                <th className="pl--10">
                   Quantity
                   <i className="icon icon--base icon--sort icon--grey"></i>
                 </th>
               </tr>
-              <tr>
-                <td>12321123</td>
-                <td>Veš mašina</td>
-                <td>14</td>
-                <td>
-                  <i className="icon icon--base icon--edit"></i>
-                </td>
-                <td>
-                  <i className="icon icon--base icon--delete"></i>
-                </td>
-              </tr>
+
+              {productsList.map((product) => (
+                <Table product={product} />
+              ))}
             </table>
           </div>
         </div>

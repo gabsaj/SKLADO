@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import AddProducts from "./app/features/pages/AddProducts";
-import EditProducts from "./app/features/pages/EditProducts";
+import AddProduct from "./app/features/pages/AddProduct";
+import EditProduct from "./app/features/pages/EditProduct";
 import LandingPage from "./app/features/pages/LandingPage";
 import ProductsPage from "./app/features/pages/ProductsPage";
 import WelcomePage from "./app/features/pages/WelcomePage";
@@ -11,8 +11,8 @@ const MainRouter = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/welcome-page" element={<WelcomePage />} />
       <Route path="/products" element={<ProductsPage />} />
-      <Route path="/add-products" element={<AddProducts />} />
-      <Route path="/edit-products" element={<EditProducts />} />
+      <Route path="/add-product" element={<AddProduct />} />
+      <Route path="/edit-product" element={<EditProduct />} />
     </Routes>
   );
 };

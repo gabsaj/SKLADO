@@ -6,6 +6,12 @@ components: input.scss
   height: 48px;
   border: none;
   border-radius: 2px;
+  padding-left: 12px;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
   &--primary {
     width: 528px;
     border: 1px solid $grey;
@@ -15,5 +21,6 @@ components: input.scss
   }
   &--tertiary {
     width: 99px;
+    border: 1px solid $grey;
   }
 }

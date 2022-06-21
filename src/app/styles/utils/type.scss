@@ -22,12 +22,15 @@ utils: type.scss
       }
       &--semibold {
         font-weight: 600;
+        font-style: normal;
       }
       &--bold {
         font-weight: 700;
+        font-style: normal;
       }
       &--extrabold {
         font-weight: 800;
+        font-style: normal;
       }
     }
   }

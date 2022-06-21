@@ -1,0 +1,10 @@
+/* 
+utils: flex.scss
+*/
+
+.flex {
+  display: flex;
+  &--col {
+    flex-direction: column;
+  }
+}

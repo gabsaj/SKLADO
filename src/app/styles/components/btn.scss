@@ -3,11 +3,10 @@ components: btn.scss
 */
 
 .btn {
-  display: flex;
-  align-items: center;
   text-align: center;
   border: none;
   border-radius: $border--round;
+  width: 100%;
   cursor: pointer;
   border-radius: 2px;
   //styles
@@ -28,15 +27,12 @@ components: btn.scss
 
   //sizes
   &--s {
-    width: 208px;
-    height: 40px;
+    padding: 6px;
   }
   &--m {
-    width: 229px;
-    height: 48px;
+    padding: 12px;
   }
   &--l {
-    width: 528px;
-    height: 48px;
+    padding: 12px;
   }
 }

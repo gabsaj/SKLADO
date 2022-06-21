@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "barcode": 1231132,
+      "name": "pegla",
+      "quantity": 12
+    },
+    {
+      "barcode": 56343124,
+      "name": "filteri",
+      "quantity": 15
+    },
+    {
+      "barcode": 377338,
+      "name": "duvan",
+      "quantity": 19
+    },
+    {
+      "barcode": 288233,
+      "name": "rizle",
+      "quantity": 121
+    }
+  ]
+}

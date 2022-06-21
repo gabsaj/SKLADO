@@ -1,0 +1,30 @@
+/* 
+components: login.scss
+*/
+
+.form {
+  margin: 80px 32px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  border-radius: 2px;
+  padding: 24px;
+  border: 1px solid $grey;
+  &--logo {
+    content: url(../../assets/images/logo--mini.svg);
+  }
+  &__title {
+    font-size: 18px;
+  }
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  &__blue {
+    color: $color--secondary;
+  }
+  &__forgot {
+    place-self: end;
+  }
+}
