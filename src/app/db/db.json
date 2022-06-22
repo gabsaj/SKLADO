@@ -8,116 +8,60 @@
       "id": "c6cb0942-00c6-43e7-9f7c-eb5e142e1009"
     },
     {
+      "barcode": 11111111,
+      "name": "ProductName",
+      "details": "ProductDetails",
+      "quantity": 1,
+      "id": "e04afc9e-0a5b-490d-b3cb-32e535ff6757"
+    },
+    {
+      "barcode": 22222222,
+      "name": "ProductName2",
+      "details": "ProductDetails2",
+      "quantity": 2,
+      "id": "04512bc7-94fd-4b7d-a25a-85a77dced750"
+    },
+    {
       "barcode": 33333333,
       "name": "ProductName3",
       "details": "ProductDetails3",
-      "quantity": 41412,
-      "id": "c9b6a730-66bc-4c68-8559-dbd00a8a4a6e"
+      "quantity": 3,
+      "id": "1718c9a8-2974-4e42-a68d-d6d5a4575437"
     },
     {
-      "barcode": 44444444,
+      "barcode": 4444444,
       "name": "ProductName4",
       "details": "ProductDetails4",
       "quantity": 4,
-      "id": "4e750b30-91f7-48e5-aeff-2c87a41b2eae"
+      "id": "ccc636b4-f97d-412a-a833-8e61ab7ce012"
     },
     {
       "barcode": 55555555,
       "name": "ProductName5",
       "details": "ProductDetails5",
       "quantity": 5,
-      "id": "70eac6ab-25fd-4ef8-aa83-1edfeef441ae"
+      "id": "caf8b798-2bcc-4265-82b7-cc106c802ee3"
+    },
+    {
+      "barcode": 6666666,
+      "name": "ProductName6",
+      "details": "ProductDetails6",
+      "quantity": 6,
+      "id": "d5f5f472-2720-4797-ae54-42f8183cef1b"
     },
     {
       "barcode": 77777777,
       "name": "ProductName7",
       "details": "ProductDetails7",
       "quantity": 7,
-      "id": "78b11709-cf99-4557-8e73-50d15c41f546"
+      "id": "6a52da80-f8e9-4858-b873-1182e49503dd"
     },
     {
-      "barcode": 99999999,
-      "name": "ProductName9",
-      "details": "ProductDetails9",
-      "quantity": 9,
-      "id": "e795a558-0a4b-413f-b912-376c6d1a352d"
-    },
-    {
-      "barcode": 13131313,
-      "name": "ProductName13",
-      "details": "ProductDetails13",
-      "quantity": 13,
-      "id": "7a6dfef0-dd50-4586-97d1-7355152c291b"
-    },
-    {
-      "barcode": 15151515,
-      "name": "ProductName15",
-      "details": "ProductDetails15",
-      "quantity": 15,
-      "id": "5bb60818-deba-4626-be23-d941086de4cb"
-    },
-    {
-      "barcode": 17171717,
-      "name": "ProductName17",
-      "details": "ProductDetails17",
-      "quantity": 17,
-      "id": "a172e6eb-baa7-40f2-a175-2c113efe5223"
-    },
-    {
-      "barcode": 19191919,
-      "name": "ProductName19",
-      "details": "ProductDetails19",
-      "quantity": 19,
-      "id": "41e19a34-e9d1-4793-84e8-6e9d95aca710"
-    },
-    {
-      "barcode": 21212121,
-      "name": "ProductName21",
-      "details": "ProductDetails21",
-      "quantity": 21,
-      "id": "85c8f6e6-e8e9-4066-8abe-e4918debc727"
-    },
-    {
-      "barcode": 24242424,
-      "name": "ProductName24",
-      "details": "ProductDetails24",
-      "quantity": 24,
-      "id": "5a5a8ea9-be58-4e6d-8b18-b32bf9489ddc"
-    },
-    {
-      "barcode": 38581201,
-      "name": "Mouse",
-      "details": "Gaming mouse",
-      "quantity": 184,
-      "id": "b614ed13-86a9-43aa-b462-3a05cc9981d1"
-    },
-    {
-      "barcode": 38581202,
-      "name": "Bowl",
-      "details": "Fruit bowl",
-      "quantity": 2,
-      "id": "db0822f5-6de6-4d39-b441-ab17362a7600"
-    },
-    {
-      "barcode": 38567308,
-      "name": "Computer",
-      "details": "Gaming pc ",
-      "quantity": 4,
-      "id": "d01d1693-6f5c-405f-84f1-c7df9e1bfe3e"
-    },
-    {
-      "barcode": 35376541,
-      "name": "Watch",
-      "details": "Wrist watch for men",
-      "quantity": 15,
-      "id": "7f527c4c-b2ed-42db-8a8f-ef06f7b8bccc"
-    },
-    {
-      "barcode": 35388902,
-      "name": "Whiskas",
-      "details": "Whiskas cat food",
-      "quantity": 291,
-      "id": "381fbb10-d98a-4035-810a-de1286d841a2"
+      "barcode": 88888888,
+      "name": "ProductName8",
+      "details": "ProductDetails8",
+      "quantity": 8,
+      "id": "7c4a0754-e8ae-45fe-b564-447a0e08bb25"
     }
   ]
 }

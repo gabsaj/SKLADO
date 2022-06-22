@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Flip, toast } from "react-toastify";
 import ProductService from "../../services/productService";
@@ -10,8 +11,19 @@ interface Props {
 const Table: React.FC<Props> = (props) => {
   const { product } = props;
   const productService = new ProductService();
+  const [productsList, setProductsList] = useState<Product[]>([]);
+
+  const handleFetch = async () => {
+    try {
+      const response = await productService.getProducts();
+      return setProductsList(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleDelete = async () => {
+    debugger;
     try {
       await productService.deleteProduct(product.id);
 
@@ -22,6 +34,7 @@ const Table: React.FC<Props> = (props) => {
         transition: Flip,
         theme: "dark",
       });
+      handleFetch();
     } catch {
       toast.error("Failed delete product.", {
         position: "top-center",
@@ -32,6 +45,10 @@ const Table: React.FC<Props> = (props) => {
       });
     }
   };
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
 
   return (
     <tr key={product.id}>

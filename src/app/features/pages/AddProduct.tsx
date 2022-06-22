@@ -28,7 +28,6 @@ const AddProducts = () => {
           quantity: productQuantity,
           id: id(),
         });
-        navigate("/products");
         toast.success("Product added.", {
           position: "top-center",
           hideProgressBar: true,
@@ -63,6 +62,63 @@ const AddProducts = () => {
             <i className="icon icon--base icon--back icon--blue"></i>
             <div>Back</div>
           </div>
+          <form className="form">
+            <div className="form__title">Add new product</div>
+            <div className="form__field">
+              <label htmlFor="barcode">Barcode</label>
+              <input
+                required
+                type="number"
+                placeholder="Barcode"
+                id="barcode"
+                className="input input--primary"
+                onChange={(e) => setProductBarcode(Number(e.target.value))}
+              />
+            </div>
+            <div className="form__field">
+              <label htmlFor="name">Name</label>
+              <input
+                required
+                type="text"
+                placeholder="Name"
+                id="name"
+                className="input input--primary"
+                onChange={(e) => setProductName(e.target.value)}
+              />
+            </div>
+            <div className="form__field">
+              <label htmlFor="details">Details</label>
+              <input
+                required
+                type="text"
+                placeholder="Details"
+                id="details"
+                className="input input--primary"
+                onChange={(e) => setProductDetails(e.target.value)}
+              />
+            </div>
+            <div className="form__field">
+              <label htmlFor="quantity">Quantity</label>
+              <input
+                required
+                type="number"
+                placeholder="0"
+                id="quantity"
+                className="input input--tertiary"
+                onChange={(e) => setProductQuantity(Number(e.target.value))}
+              />
+            </div>
+            <button
+              type="submit"
+              onClick={() => {
+                handleSubmit();
+                navigate(`/products`, { replace: true });
+              }}
+              className="btn btn--primary btn--l mt--80"
+            >
+              Add product
+            </button>
+          </form>
         </div>
       </div>
     </div>

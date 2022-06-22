@@ -38,10 +38,6 @@ const ProductForm = () => {
     }
   };
 
-  useEffect(() => {
-    fetchProduct();
-  }, []);
-
   const handleSubmit = async () => {
     try {
       if (
@@ -60,7 +56,6 @@ const ProductForm = () => {
           },
           productId
         );
-        navigate(`/products`);
         toast.success("Product edited.", {
           position: "top-center",
           hideProgressBar: true,
@@ -80,6 +75,30 @@ const ProductForm = () => {
     }
   };
 
+  const handleDelete = async () => {
+    debugger;
+    try {
+      await productService.deleteProduct(productId);
+      toast.success("Product deleted", {
+        hideProgressBar: true,
+        position: "top-center",
+        autoClose: 2500,
+        theme: "dark",
+      });
+    } catch (error) {
+      toast.error("Failed to delete product.", {
+        hideProgressBar: true,
+        position: "top-center",
+        autoClose: 2500,
+        theme: "dark",
+      });
+    }
+  };
+
+  useEffect(() => {
+    fetchProduct();
+  }, []);
+
   return (
     <div>
       <form className="form">
@@ -87,7 +106,7 @@ const ProductForm = () => {
         <div className="form__field">
           <label htmlFor="barcode">Barcode</label>
           <input
-            value={productBarcode}
+            value={productBarcode ? productBarcode : ""}
             required
             type="number"
             placeholder="Barcode"
@@ -123,7 +142,7 @@ const ProductForm = () => {
         <div className="form__field">
           <label htmlFor="quantity">Quantity</label>
           <input
-            value={productQuantity}
+            value={productQuantity ? productQuantity : ""}
             required
             type="number"
             placeholder="0"
@@ -135,12 +154,21 @@ const ProductForm = () => {
 
         <button
           type="submit"
-          onClick={() => handleSubmit()}
+          onClick={() => {
+            handleSubmit();
+            navigate(`/products`, { replace: true });
+          }}
           className="btn btn--primary btn--l mt--80"
         >
           Save
         </button>
-        <button className="btn btn--tertiary btn--l mt--16">
+        <button
+          onClick={() => {
+            handleDelete();
+            navigate(`/products`, { replace: true });
+          }}
+          className="btn btn--tertiary btn--l mt--16"
+        >
           Delete product
         </button>
       </form>

@@ -17,7 +17,6 @@ const LandingPage = () => {
           transition: Flip,
           autoClose: 2500,
         });
-        navigate("/welcome-page");
       }
     } catch (error) {
       toast.error("Login failed.", {
@@ -64,7 +63,10 @@ const LandingPage = () => {
           </div>
           <div className="login__blue login__forgot">Forgot your password?</div>
           <button
-            onClick={() => handleLogin()}
+            onClick={() => {
+              handleLogin();
+              navigate("/welcome-page", { replace: true });
+            }}
             type="submit"
             className="btn btn--primary btn--s my--32"
           >
