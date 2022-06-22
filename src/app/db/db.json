@@ -1,24 +1,25 @@
 {
   "products": [
     {
-      "barcode": 1231132,
-      "name": "pegla",
-      "quantity": 12
+      "barcode": 11111111,
+      "name": "ProductName1",
+      "details": "ProductDetails",
+      "quantity": 1,
+      "id": "5f44d777-3336-402c-9228-4c76d8b14d3a"
     },
     {
-      "barcode": 56343124,
-      "name": "filteri",
-      "quantity": 15
+      "barcode": 33333333,
+      "name": "ProductName3",
+      "details": "ProductDetails3",
+      "quantity": 3,
+      "id": "ce2bbffe-32ad-45c0-b8be-5bdb3546ee22"
     },
     {
-      "barcode": 377338,
-      "name": "duvan",
-      "quantity": 19
-    },
-    {
-      "barcode": 288233,
-      "name": "rizle",
-      "quantity": 121
+      "barcode": 5555555,
+      "name": "ProductName5",
+      "details": "ProductDetails5",
+      "quantity": 5,
+      "id": "76d7ec81-f9e5-43df-a0ac-2fbd7b60af78"
     }
   ]
 }

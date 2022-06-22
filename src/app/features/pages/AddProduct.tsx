@@ -1,7 +1,52 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ProductService from "../../services/productService";
+import { v4 as id } from "uuid";
+import { Flip, toast } from "react-toastify";
 
 const AddProducts = () => {
+  const [productBarcode, setProductBarcode] = useState<number>(0);
+  const [productName, setProductName] = useState<string>("");
+  const [productDetails, setProductDetails] = useState<string>("");
+  const [productQuantity, setProductQuantity] = useState<number>(0);
+  const productService = new ProductService();
   const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    try {
+      if (
+        productBarcode > 0 &&
+        productName !== "" &&
+        productDetails !== "" &&
+        productQuantity > 0
+      ) {
+        await productService.createProduct({
+          barcode: productBarcode,
+          name: productName,
+          details: productDetails,
+          quantity: productQuantity,
+          id: id(),
+        });
+        navigate("/products/");
+        toast.success("Product added.", {
+          position: "top-center",
+          hideProgressBar: true,
+          autoClose: 2500,
+          transition: Flip,
+          theme: "dark",
+        });
+      }
+    } catch {
+      toast.error("Failed to add product.", {
+        position: "top-center",
+        hideProgressBar: true,
+        autoClose: 2500,
+        transition: Flip,
+        theme: "dark",
+      });
+    }
+  };
+
   return (
     <div>
       <div className="title type--montserrat mt--32 ml--40">Add Product</div>
@@ -17,40 +62,53 @@ const AddProducts = () => {
         <div className="form__field">
           <label htmlFor="barcode">Barcode</label>
           <input
+            required
             type="number"
             placeholder="Barcode"
             id="barcode"
             className="input input--primary"
+            onChange={(e) => setProductBarcode(Number(e.target.value))}
           />
         </div>
         <div className="form__field">
           <label htmlFor="name">Name</label>
           <input
+            required
             type="text"
             placeholder="Name"
             id="name"
             className="input input--primary"
+            onChange={(e) => setProductName(e.target.value)}
           />
         </div>
         <div className="form__field">
           <label htmlFor="details">Details</label>
           <input
+            required
             type="text"
             placeholder="Details"
             id="details"
             className="input input--primary"
+            onChange={(e) => setProductDetails(e.target.value)}
           />
         </div>
         <div className="form__field">
           <label htmlFor="quantity">Quantity</label>
           <input
+            required
             type="number"
             placeholder="0"
             id="quantity"
             className="input input--tertiary"
+            onChange={(e) => setProductQuantity(Number(e.target.value))}
           />
         </div>
-        <button className="btn btn--primary btn--l mt--80">Add product</button>
+        <button
+          onClick={() => handleSubmit()}
+          className="btn btn--primary btn--l mt--80"
+        >
+          Add product
+        </button>
       </form>
     </div>
   );
