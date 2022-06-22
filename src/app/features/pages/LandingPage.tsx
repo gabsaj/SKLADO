@@ -32,11 +32,11 @@ const LandingPage = () => {
   return (
     <div className="layout">
       <div>
-        <img className="boxes--login" alt="boxes image" />
+        <img className="boxes--login" alt="boxes" />
       </div>
       <div className="ml--32 pt--80">
         <div className="title type--nunito ">
-          Login<img className="login--logo"></img>
+          Login<img className="login--logo" alt="logo"></img>
         </div>
         <div className="type--nunito mt--16">Login to view your products</div>
         <form className="form type--nunito mt--40">

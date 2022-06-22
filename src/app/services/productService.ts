@@ -26,4 +26,10 @@ export default class ProductService extends BaseService {
     const response = await this.instance.get(`products/${id}`);
     return response.data;
   }
+
+  //update product
+  async updateProduct(data: Product, id: string) {
+    const response = await this.instance.put(`products/${id}`, data);
+    return response;
+  }
 }

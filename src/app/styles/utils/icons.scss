@@ -39,6 +39,9 @@ utils: icons.scss
   }
   &--sort {
     mask-image: url(../../assets/icons/sort.svg);
+    &:hover {
+      background-color: $color--secondary;
+    }
   }
   &--search {
     mask-image: url(../../assets/icons/search.svg);

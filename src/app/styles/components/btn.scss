@@ -3,10 +3,12 @@ components: btn.scss
 */
 
 .btn {
-  text-align: center;
+  display: inline-block;
   border: none;
   border-radius: $border--round;
-  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
   cursor: pointer;
   border-radius: 2px;
   //styles

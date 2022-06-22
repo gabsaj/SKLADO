@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductService from "../../services/productService";
@@ -62,7 +63,7 @@ const ProductsPage = () => {
               to={"/add-product"}
               className="btn btn--secondary btn--s flex"
             >
-              <i className="icon icon--base icon--add icon--white ml--16"></i>
+              <i className="icon icon--base icon--plus icon--blue ml--16"></i>
               <div className="ml--19">Add product</div>
             </Link>
           </div>
@@ -70,7 +71,7 @@ const ProductsPage = () => {
             className="
           tablediv"
           >
-            <table className="mt--80">
+            <table className="mt--80 type--nunito">
               <thead>
                 <tr>
                   <th className="pl--10">

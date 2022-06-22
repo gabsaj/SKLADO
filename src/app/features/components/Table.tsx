@@ -11,7 +11,7 @@ const Table: React.FC<Props> = (props) => {
   const { product } = props;
   const productService = new ProductService();
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async () => {
     try {
       await productService.deleteProduct(product.id);
 
@@ -40,13 +40,12 @@ const Table: React.FC<Props> = (props) => {
       <td className="pl--10">{product.quantity}</td>
       <td className="pl--10">
         <Link to={`/edit-product/${product.id}`}>
-          {" "}
           <i className="icon icon--base icon--edit"></i>
         </Link>
       </td>
       <td>
         <i
-          onClick={() => handleDelete(product.id)}
+          onClick={() => handleDelete()}
           className="icon icon--base icon--delete"
         ></i>
       </td>

@@ -12,7 +12,7 @@ const MainRouter = () => {
       <Route path="/welcome-page" element={<WelcomePage />} />
       <Route path="/products" element={<ProductsPage />} />
       <Route path="/add-product" element={<AddProduct />} />
-      <Route path="/edit-product" element={<EditProduct />} />
+      <Route path="/edit-product/:productId" element={<EditProduct />} />
     </Routes>
   );
 };
