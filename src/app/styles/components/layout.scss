@@ -17,13 +17,22 @@ components: nav.scss
     min-height: 100vh;
     height: 100%;
   }
+  &__boxes--login {
+    content: url(../../assets/images/boxes-login.svg);
+    height: 100vh;
+  }
+  &__logo-s {
+    content: url(../../assets/images/logo--mini.svg);
+  }
 }
 
 .title {
   font-size: 32px;
+  display: flex;
 }
 .wrapper {
   display: flex;
+  justify-content: flex-end;
 }
 .search__container {
   border: 1px solid $black;

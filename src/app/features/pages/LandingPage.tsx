@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Flip, toast } from "react-toastify";
 
@@ -32,13 +32,18 @@ const LandingPage = () => {
   return (
     <div className="layout">
       <div>
-        <img className="boxes--login" alt="boxes" />
+        <img className="layout__boxes--login" alt="boxes" />
       </div>
-      <div className="ml--32 pt--80">
-        <div className="title type--nunito ">
-          Login<img className="login--logo" alt="logo"></img>
+      <div>
+        <div className="mt--80 ml--32">
+          <div className="title type--montserrat type--wgt--semibold ">
+            Login<img className="layout__logo-s" alt="logo"></img>
+          </div>
+          <div className="layout__subtitle type--nunito mt--16">
+            Login to view your products
+          </div>
         </div>
-        <div className="type--nunito mt--16">Login to view your products</div>
+
         <form className="form type--nunito mt--40">
           <div className="form__field">
             <label htmlFor="email">Email*</label>
@@ -62,7 +67,9 @@ const LandingPage = () => {
               onChange={(e) => setLoginPassword(e.target.value)}
             />
           </div>
-          <div className="login__blue login__forgot">Forgot your password?</div>
+          <Link to={"/register"} className="form__link">
+            Forgot your password?
+          </Link>
           <button
             onClick={() => handleLogin()}
             type="submit"
@@ -72,7 +79,7 @@ const LandingPage = () => {
           </button>
           <div>
             Don't have an account yet?
-            <div className="login__blue">Register here.</div>
+            <div className="form__link">Register here.</div>
           </div>
         </form>
       </div>

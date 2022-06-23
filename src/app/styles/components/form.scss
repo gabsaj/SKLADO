@@ -27,4 +27,8 @@ components: login.scss
   &__forgot {
     place-self: end;
   }
+  &__link {
+    color: $color--secondary;
+    place-self: flex-end;
+  }
 }
