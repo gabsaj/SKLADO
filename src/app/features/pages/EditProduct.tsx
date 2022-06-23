@@ -1,14 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { toast, Flip } from "react-toastify";
-import ProductService from "../../services/productService";
-import { Product } from "../../types/product";
+import { useNavigate } from "react-router-dom";
 import ProductForm from "../components/ProductForm";
 import Sidebar from "../components/Sidebar";
 
 const EditProducts = () => {
-  const productService = new ProductService();
   const navigate = useNavigate();
 
   return (

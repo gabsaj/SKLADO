@@ -3,8 +3,11 @@ import { BaseService } from "./baseService";
 
 export default class ProductService extends BaseService {
   //get products
-  async getProducts(): Promise<Product[]> {
-    const response = await this.instance.get(`products`);
+
+  async getProducts(sort: string, sortDirection?: string): Promise<Product[]> {
+    const response = await this.instance.get(
+      `products?_sort=${sort}&_order=${sortDirection}`
+    );
     return response.data;
   }
 
@@ -14,7 +17,9 @@ export default class ProductService extends BaseService {
     const response = await this.instance.post("products/", data);
     return response;
   }
+
   //delete product
+
   async deleteProduct(id: string) {
     const response = await this.instance.delete(`products/${id}`);
     return response;
@@ -28,6 +33,7 @@ export default class ProductService extends BaseService {
   }
 
   //update product
+
   async updateProduct(data: Product, id: string) {
     const response = await this.instance.put(`products/${id}`, data);
     return response;

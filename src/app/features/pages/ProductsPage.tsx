@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast, Flip } from "react-toastify";
 import ProductService from "../../services/productService";
 import { Product } from "../../types/product";
 import Sidebar from "../components/Sidebar";
@@ -9,21 +10,29 @@ import Table from "../components/Table";
 const ProductsPage = () => {
   const [productsList, setProductsList] = useState<Product[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
+  const [sortDirection, setSortDirection] = useState<string>("");
 
   const productService = new ProductService();
 
   const fetchProducts = async () => {
     try {
-      const response = await productService.getProducts();
+      const response = await productService.getProducts("name", sortDirection);
       setProductsList(response);
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to get products", {
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: true,
+        transition: Flip,
+        theme: "dark",
+      });
     }
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
+
   const handleFilter = (value: Product) => {
     const filterSearch = () => {
       if (searchValue === "") {
@@ -38,9 +47,21 @@ const ProductsPage = () => {
     return filterSearch();
   };
 
+  const handleSort = () => {
+    if (sortDirection === "") {
+      setSortDirection("asc");
+    }
+    if (sortDirection === "asc") {
+      setSortDirection("desc");
+    }
+    if (sortDirection === "desc") {
+      setSortDirection("");
+    }
+  };
+
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [sortDirection]);
   return (
     <div>
       <div className="layout">
@@ -76,15 +97,27 @@ const ProductsPage = () => {
                 <tr>
                   <th className="pl--10">
                     Barcode
-                    <i className="icon icon--base icon--sort icon--grey"></i>
+                    <i
+                      onClick={() => {
+                        console.log(sortDirection);
+                        handleSort();
+                      }}
+                      className="icon icon--base icon--sort icon--grey"
+                    ></i>
                   </th>
                   <th className="pl--10">
                     Name
-                    <i className="icon icon--base icon--sort icon--grey"></i>
+                    <i
+                      onClick={() => handleSort()}
+                      className="icon icon--base icon--sort icon--grey"
+                    ></i>
                   </th>
                   <th className="pl--10">
                     Quantity
-                    <i className="icon icon--base icon--sort icon--grey"></i>
+                    <i
+                      onClick={() => handleSort()}
+                      className="icon icon--base icon--sort icon--grey"
+                    ></i>
                   </th>
                 </tr>
               </thead>

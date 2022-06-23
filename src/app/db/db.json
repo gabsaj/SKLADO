@@ -8,13 +8,6 @@
       "id": "c6cb0942-00c6-43e7-9f7c-eb5e142e1009"
     },
     {
-      "barcode": 11111111,
-      "name": "ProductName",
-      "details": "ProductDetails",
-      "quantity": 1,
-      "id": "e04afc9e-0a5b-490d-b3cb-32e535ff6757"
-    },
-    {
       "barcode": 22222222,
       "name": "ProductName2",
       "details": "ProductDetails2",
@@ -62,6 +55,13 @@
       "details": "ProductDetails8",
       "quantity": 8,
       "id": "7c4a0754-e8ae-45fe-b564-447a0e08bb25"
+    },
+    {
+      "barcode": 11111111,
+      "name": "ProductName",
+      "details": "ProductDetails",
+      "quantity": 1,
+      "id": "13abd80e-7176-4b14-9452-0d79606ffcc4"
     }
   ]
 }

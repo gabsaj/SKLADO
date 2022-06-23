@@ -15,15 +15,20 @@ const Table: React.FC<Props> = (props) => {
 
   const handleFetch = async () => {
     try {
-      const response = await productService.getProducts();
-      return setProductsList(response);
+      const response = await productService.getProducts("name");
+      return response;
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to get products", {
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: true,
+        transition: Flip,
+        theme: "dark",
+      });
     }
   };
 
   const handleDelete = async () => {
-    debugger;
     try {
       await productService.deleteProduct(product.id);
 

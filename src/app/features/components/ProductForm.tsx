@@ -11,9 +11,8 @@ const ProductForm = () => {
   const [productId, setProductId] = useState<string>("");
 
   const productService = new ProductService();
-  const navigate = useNavigate();
   const params = useParams();
-  console.log(params);
+  const navigate = useNavigate();
 
   const fetchProduct = async () => {
     try {
@@ -76,7 +75,6 @@ const ProductForm = () => {
   };
 
   const handleDelete = async () => {
-    debugger;
     try {
       await productService.deleteProduct(productId);
       toast.success("Product deleted", {
