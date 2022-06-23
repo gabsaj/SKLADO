@@ -31,8 +31,16 @@ components: nav.scss
   display: flex;
 }
 .wrapper {
-  display: flex;
-  justify-content: flex-end;
+  &__products {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__welcome {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 .search__container {
   border: 1px solid $black;

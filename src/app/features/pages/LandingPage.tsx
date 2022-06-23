@@ -36,11 +36,11 @@ const LandingPage = () => {
       </div>
       <div>
         <div className="mt--80 ml--32">
-          <div className="title type--montserrat type--wgt--semibold ">
+          <div className="title type--montserrat type--wgt-- ">
             Login<img className="layout__logo-s" alt="logo"></img>
           </div>
           <div className="layout__subtitle type--nunito mt--16">
-            Login to view your products
+            Login to manage your products
           </div>
         </div>
 
@@ -67,9 +67,7 @@ const LandingPage = () => {
               onChange={(e) => setLoginPassword(e.target.value)}
             />
           </div>
-          <Link to={"/register"} className="form__link">
-            Forgot your password?
-          </Link>
+          <div className="form__link">Forgot your password?</div>
           <button
             onClick={() => handleLogin()}
             type="submit"
@@ -79,7 +77,9 @@ const LandingPage = () => {
           </button>
           <div>
             Don't have an account yet?
-            <div className="form__link">Register here.</div>
+            <Link to={"/register"} className="form__link ml--8">
+              Register here.
+            </Link>
           </div>
         </form>
       </div>

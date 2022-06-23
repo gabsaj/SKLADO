@@ -70,7 +70,7 @@ const ProductsPage = () => {
           <div className="title type--montserrat type--montserrat--wgt--semibold mt--32 ml--24">
             Start adding products!
           </div>
-          <div className="wrapper mr--32 mt--80">
+          <div className="wrapper__products mr--32 mt--80">
             <div className="search__container mr--16">
               <i className="icon  icon--base icon--search ml--16"></i>
               <input

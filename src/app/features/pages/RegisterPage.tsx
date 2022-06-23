@@ -6,8 +6,13 @@ const RegisterPage = () => {
       <div className="layout">
         <img className="layout__boxes--login" alt="boxes"></img>
         <div className="layout__main">
-          <div className="title type--montserrat mt--80 ml--32">
-            Register<img className="layout__logo-s" alt="logo"></img>
+          <div className="mt--80 ml--32">
+            <div className="title type--montserrat type--wgt-- ">
+              Register<img className="layout__logo-s" alt="logo"></img>
+            </div>
+            <div className="layout__subtitle type--nunito mt--16">
+              Register to manage your products
+            </div>
           </div>
           <form className="form type--nunito">
             <div className="form__field">

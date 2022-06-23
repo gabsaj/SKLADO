@@ -4,12 +4,21 @@ const WelcomePage = () => {
   return (
     <div>
       <img className="boxes__img" alt="boxes"></img>
-      <img className="img--logo--small mt--32 ml--32" alt="logo" />
-      <div className="title mt--32 type--montserrat">Welcome to Sklado!</div>
-      <div className="type--nunito mt--16">Jump right in!</div>
-      <Link className="btn btn--primary btn--m type--nunito" to={"/products"}>
-        <div className="ml--16">VIEW PRODUCTS</div>
-      </Link>
+      <img className="img--logo--small mt--32 ml--80" alt="logo" />
+      <div className="mt--80 ml--80 wrapper__welcome">
+        <div className="title type--montserrat type--wgt-- ">
+          Welcome to SKLADO
+        </div>
+        <div className="layout__subtitle type--nunito mt--16">
+          Login to view your products
+        </div>
+        <Link
+          className="btn btn--primary btn--m type--nunito mr--64 mt--16"
+          to={"/products"}
+        >
+          <div className="">VIEW PRODUCTS</div>
+        </Link>
+      </div>
     </div>
   );
 };
