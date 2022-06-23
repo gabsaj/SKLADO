@@ -11,12 +11,13 @@ const ProductsPage = () => {
   const [productsList, setProductsList] = useState<Product[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
   const [sortDirection, setSortDirection] = useState<string>("");
+  const [sortBy, setSortBy] = useState<string>("");
 
   const productService = new ProductService();
 
   const fetchProducts = async () => {
     try {
-      const response = await productService.getProducts("name", sortDirection);
+      const response = await productService.getProducts(sortBy, sortDirection);
       setProductsList(response);
     } catch (error) {
       toast.error("Failed to get products", {
@@ -47,7 +48,7 @@ const ProductsPage = () => {
     return filterSearch();
   };
 
-  const handleSort = () => {
+  const handleSort = (sortBy: string) => {
     if (sortDirection === "") {
       setSortDirection("asc");
     }
@@ -57,6 +58,7 @@ const ProductsPage = () => {
     if (sortDirection === "desc") {
       setSortDirection("");
     }
+    setSortBy(sortBy);
   };
 
   useEffect(() => {
@@ -100,7 +102,7 @@ const ProductsPage = () => {
                     <i
                       onClick={() => {
                         console.log(sortDirection);
-                        handleSort();
+                        handleSort("barcode");
                       }}
                       className="icon icon--base icon--sort icon--grey"
                     ></i>
@@ -108,14 +110,14 @@ const ProductsPage = () => {
                   <th className="pl--10">
                     Name
                     <i
-                      onClick={() => handleSort()}
+                      onClick={() => handleSort("name")}
                       className="icon icon--base icon--sort icon--grey"
                     ></i>
                   </th>
                   <th className="pl--10">
                     Quantity
                     <i
-                      onClick={() => handleSort()}
+                      onClick={() => handleSort("quantity")}
                       className="icon icon--base icon--sort icon--grey"
                     ></i>
                   </th>

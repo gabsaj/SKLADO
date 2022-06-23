@@ -22,13 +22,6 @@
       "id": "1718c9a8-2974-4e42-a68d-d6d5a4575437"
     },
     {
-      "barcode": 4444444,
-      "name": "ProductName4",
-      "details": "ProductDetails4",
-      "quantity": 4,
-      "id": "ccc636b4-f97d-412a-a833-8e61ab7ce012"
-    },
-    {
       "barcode": 55555555,
       "name": "ProductName5",
       "details": "ProductDetails5",
@@ -36,7 +29,7 @@
       "id": "caf8b798-2bcc-4265-82b7-cc106c802ee3"
     },
     {
-      "barcode": 6666666,
+      "barcode": 66666666,
       "name": "ProductName6",
       "details": "ProductDetails6",
       "quantity": 6,
@@ -62,6 +55,27 @@
       "details": "ProductDetails",
       "quantity": 1,
       "id": "13abd80e-7176-4b14-9452-0d79606ffcc4"
+    },
+    {
+      "barcode": 38564031,
+      "name": "Flour",
+      "details": "Plain flour",
+      "quantity": 182,
+      "id": "9d841f95-2d98-4064-a35c-73e29ad10ee3"
+    },
+    {
+      "barcode": 38532001,
+      "name": "Chocolate",
+      "details": "Kras chocolate",
+      "quantity": 35,
+      "id": "c525b01b-5643-4e25-b596-cd67953d94fc"
+    },
+    {
+      "barcode": 35301387,
+      "name": "Guinness",
+      "details": "Guinness can beer",
+      "quantity": 999,
+      "id": "176c714e-a786-4719-9d11-175ba90b1029"
     }
   ]
 }

@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Flip, toast } from "react-toastify";
+import halfBoxes from "../../assets/images/boxes-login.svg";
+import logoXs from "../../assets/images/logo--mini.svg";
 
 const LandingPage = () => {
   const [loginName, setLoginName] = useState<string>("");
@@ -32,12 +34,12 @@ const LandingPage = () => {
   return (
     <div className="layout">
       <div>
-        <img className="layout__boxes--login" alt="boxes" />
+        <img src={halfBoxes} alt="boxes" />
       </div>
       <div>
         <div className="mt--80 ml--32">
           <div className="title type--montserrat type--wgt-- ">
-            Login<img className="layout__logo-s" alt="logo"></img>
+            Login<img src={logoXs} alt="logo"></img>
           </div>
           <div className="layout__subtitle type--nunito mt--16">
             Login to manage your products

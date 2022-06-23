@@ -15,8 +15,6 @@ components: btn.scss
   &--primary {
     background-color: $color--secondary;
     color: $white;
-    display: flex;
-    align-items: center;
   }
   &--secondary {
     border: 2px solid $color--secondary;
