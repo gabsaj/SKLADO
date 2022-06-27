@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import AddProduct from "./app/features/pages/AddProduct";
 import EditProduct from "./app/features/pages/EditProduct";
+import ForgotPassword from "./app/features/pages/ForgotPassword";
 import LandingPage from "./app/features/pages/LandingPage";
 import ProductsPage from "./app/features/pages/ProductsPage";
 import RegisterPage from "./app/features/pages/RegisterPage";
@@ -15,6 +16,7 @@ const MainRouter = () => {
       <Route path="/add-product" element={<AddProduct />} />
       <Route path="/edit-product/:productId" element={<EditProduct />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
     </Routes>
   );
 };

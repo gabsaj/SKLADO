@@ -69,7 +69,9 @@ const LandingPage = () => {
               onChange={(e) => setLoginPassword(e.target.value)}
             />
           </div>
-          <div className="form__link">Forgot your password?</div>
+          <Link to={"/forgot-password"} className="form__link">
+            Forgot your password?
+          </Link>
           <button
             onClick={() => handleLogin()}
             type="submit"

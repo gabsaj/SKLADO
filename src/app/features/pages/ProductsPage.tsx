@@ -72,14 +72,14 @@ const ProductsPage = () => {
           <div className="title type--montserrat type--montserrat--wgt--semibold mt--32 ml--24">
             Start adding products!
           </div>
-          <div className="wrapper__products mr--32 mt--80">
+          <div className="wrapper__products type--nunito mr--32 mt--80">
             <div className="search__container mr--16">
               <i className="icon  icon--base icon--search ml--16"></i>
               <input
                 onChange={(e) => handleSearch(e)}
                 placeholder="Search"
                 type="text"
-                className="input input--secondary type--nunito ml--16"
+                className="input input--secondary  ml--16"
               />
             </div>
             <Link
@@ -97,29 +97,22 @@ const ProductsPage = () => {
             <table className="mt--80 type--nunito">
               <thead>
                 <tr>
-                  <th className="pl--10">
+                  <th
+                    className="pl--10"
+                    onClick={() => {
+                      handleSort("barcode");
+                    }}
+                  >
                     Barcode
-                    <i
-                      onClick={() => {
-                        console.log(sortDirection);
-                        handleSort("barcode");
-                      }}
-                      className="icon icon--base icon--sort icon--grey"
-                    ></i>
+                    <i className="icon icon--base icon--sort icon--grey"></i>
                   </th>
-                  <th className="pl--10">
+                  <th className="pl--10" onClick={() => handleSort("name")}>
                     Name
-                    <i
-                      onClick={() => handleSort("name")}
-                      className="icon icon--base icon--sort icon--grey"
-                    ></i>
+                    <i className="icon icon--base icon--sort icon--grey"></i>
                   </th>
-                  <th className="pl--10">
+                  <th className="pl--10" onClick={() => handleSort("quantity")}>
                     Quantity
-                    <i
-                      onClick={() => handleSort("quantity")}
-                      className="icon icon--base icon--sort icon--grey"
-                    ></i>
+                    <i className="icon icon--base icon--sort icon--grey"></i>
                   </th>
                 </tr>
               </thead>

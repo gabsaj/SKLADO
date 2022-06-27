@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast, Flip } from "react-toastify";
 import ProductService from "../../services/productService";
 
-const ProductForm = () => {
+const EditForm = () => {
   const [productBarcode, setProductBarcode] = useState<number>(0);
   const [productName, setProductName] = useState<string>("");
   const [productDetails, setProductDetails] = useState<string>("");
@@ -99,7 +99,7 @@ const ProductForm = () => {
 
   return (
     <div>
-      <form className="form">
+      <form className="form type--nunito">
         <div className="form__title">Add new product</div>
         <div className="form__field">
           <label htmlFor="barcode">Barcode</label>
@@ -174,4 +174,4 @@ const ProductForm = () => {
   );
 };
 
-export default ProductForm;
+export default EditForm;
