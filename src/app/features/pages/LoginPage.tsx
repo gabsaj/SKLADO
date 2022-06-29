@@ -7,7 +7,19 @@ import logoXs from "../../assets/images/logo--mini.svg";
 const LoginPage = () => {
   const [loginName, setLoginName] = useState<string>("");
   const [loginPassword, setLoginPassword] = useState<string>("");
+  const [showPass, setShowPass] = useState<boolean>(false);
+  const [inputType, setInputType] = useState<string>("");
   const navigate = useNavigate();
+
+  const toggleShowPass = () => {
+    setShowPass((current) => !current);
+    if (showPass === true) {
+      setInputType("text");
+    } else {
+      setInputType("password");
+    }
+    return toggleShowPass;
+  };
 
   const handleLogin = () => {
     try {
@@ -64,12 +76,15 @@ const LoginPage = () => {
               <input
                 required
                 placeholder="********"
-                type="password"
+                type={inputType}
                 id="password"
                 className="input"
                 onChange={(e) => setLoginPassword(e.target.value)}
               />
-              <i className="icon icon--base icon--show mr--19"></i>
+              <i
+                onClick={() => toggleShowPass()}
+                className="icon icon--base icon--show mr--19"
+              ></i>
             </div>
           </div>
           <Link to={"/forgot-password"} className="form__link mt--8">

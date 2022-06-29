@@ -64,11 +64,109 @@
       "id": "c525b01b-5643-4e25-b596-cd67953d94fc"
     },
     {
-      "barcode": 1,
-      "name": "1",
-      "details": "1",
-      "quantity": 1,
-      "id": "WD_w7KG"
+      "barcode": 38592654,
+      "name": "Keyboard",
+      "details": "Gaming keyboard",
+      "quantity": 76,
+      "id": "SmSN6kq"
+    },
+    {
+      "barcode": 35301001,
+      "name": "Guinness",
+      "details": "Guinness can beer",
+      "quantity": 999,
+      "id": "RlRA1JM"
+    },
+    {
+      "barcode": 35301002,
+      "name": "Wine glasses",
+      "details": "",
+      "quantity": 78,
+      "id": "UD0S9U6"
+    },
+    {
+      "barcode": 35314987,
+      "name": "Mouse",
+      "details": "Gaming mouse",
+      "quantity": 43,
+      "id": "3B4_rdB"
+    },
+    {
+      "barcode": 44183434,
+      "name": "Monitor",
+      "details": "Gaming monitor",
+      "quantity": 64,
+      "id": "DPggN4x"
+    },
+    {
+      "barcode": 11122233,
+      "name": "Pyramid",
+      "details": "",
+      "quantity": 11,
+      "id": "aZ0xxnv"
+    },
+    {
+      "barcode": 44329889,
+      "name": "Book",
+      "details": "",
+      "quantity": 98,
+      "id": "Rd8UQ48"
+    },
+    {
+      "barcode": 44019076,
+      "name": "Ipad",
+      "details": "",
+      "quantity": 43,
+      "id": "j2yGk_k"
+    },
+    {
+      "barcode": 38501001,
+      "name": "Processor",
+      "details": "Computer processor",
+      "quantity": 77,
+      "id": "9bBh7AL"
+    },
+    {
+      "barcode": 38519089,
+      "name": "Magnet",
+      "details": "Decorative fridge magnet",
+      "quantity": 48,
+      "id": "sU6JzCe"
+    },
+    {
+      "barcode": 35302997,
+      "name": "Dog food",
+      "details": "",
+      "quantity": 65,
+      "id": "TC05yHm"
+    },
+    {
+      "barcode": 38504201,
+      "name": "Apple",
+      "details": "",
+      "quantity": 702,
+      "id": "9cpVDpj"
+    },
+    {
+      "barcode": 38504178,
+      "name": "Plum",
+      "details": "",
+      "quantity": 703,
+      "id": "SrdOUlR"
+    },
+    {
+      "barcode": 35304002,
+      "name": "Peach ",
+      "details": "",
+      "quantity": 423,
+      "id": "vBxQvWd"
+    },
+    {
+      "barcode": 35304198,
+      "name": "Milk",
+      "details": "Fresh milk",
+      "quantity": 527,
+      "id": "q3j_Afh"
     }
   ]
 }

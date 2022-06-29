@@ -1,8 +1,21 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import halfBoxes from "../../assets/images/boxes-login.svg";
 import logoXs from "../../assets/images/logo--mini.svg";
 
 const RegisterPage = () => {
+  const [showPass, setShowPass] = useState<boolean>(false);
+  const [inputType, setInputType] = useState<string>("");
+
+  const toggleShowPass = () => {
+    setShowPass((current) => !current);
+    if (showPass === true) {
+      setInputType("text");
+    } else {
+      setInputType("password");
+    }
+    return toggleShowPass;
+  };
   return (
     <div>
       <div className="layout">
@@ -53,16 +66,19 @@ const RegisterPage = () => {
               />
             </div>
             <div className="form__field">
-              <label htmlFor="passwordi999">Password*</label>
+              <label htmlFor="password">Password*</label>
               <div className="input input--primary">
                 <input
                   required
-                  type="password"
+                  type={inputType}
                   placeholder="********"
                   id="password"
                   className="input "
                 />
-                <i className="icon icon--base icon--show mr--19"></i>
+                <i
+                  onClick={() => toggleShowPass()}
+                  className="icon icon--base icon--show mr--19"
+                ></i>
               </div>
             </div>
             <div className="form__field">
@@ -70,18 +86,21 @@ const RegisterPage = () => {
               <div className="input input--primary">
                 <input
                   required
-                  type="password"
+                  type={inputType}
                   placeholder="********"
                   id="quantity"
                   className="input "
                 />
-                <i className="icon icon--base icon--show mr--19"></i>
+                <i
+                  onClick={() => toggleShowPass()}
+                  className="icon icon--base icon--show mr--19"
+                ></i>
               </div>
             </div>
             <button type="submit" className="btn btn--primary btn--l mt--80">
               Register
             </button>
-            <div>
+            <div className="mt--16">
               Already have an account?{" "}
               <Link className="form__link" to={"/"}>
                 Login here

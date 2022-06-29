@@ -48,7 +48,7 @@ const TableRow: React.FC<Props> = (props) => {
         {product.barcode}
       </td>
       <td className="pl--10  type--nunito type--nunito--wgt--semibold">
-        {product.name}{" "}
+        {product.name}
       </td>
       <td className="pl--10 type--nunito type--nunito--wgt--regular">
         {product.quantity}

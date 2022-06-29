@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast, Flip } from "react-toastify";
@@ -21,7 +22,7 @@ const ProductForm = () => {
   };
 
   const switchButtons = () => {
-    if (formState == "addProduct") {
+    if (formState === "addProduct") {
       return (
         <input
           type="button"
@@ -88,7 +89,6 @@ const ProductForm = () => {
       if (
         productBarcode > 0 &&
         productName !== "" &&
-        productDetails !== "" &&
         productQuantity > 0 &&
         isChanged === true
       ) {
@@ -126,7 +126,6 @@ const ProductForm = () => {
       if (
         productBarcode > 0 &&
         productName !== "" &&
-        productDetails !== "" &&
         productQuantity > 0 &&
         isChanged === true
       ) {
