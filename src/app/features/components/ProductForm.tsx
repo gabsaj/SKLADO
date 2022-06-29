@@ -3,13 +3,58 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast, Flip } from "react-toastify";
 import ProductService from "../../services/productService";
 
-const EditForm = () => {
+const ProductForm = () => {
   const [productBarcode, setProductBarcode] = useState<number>(0);
   const [productName, setProductName] = useState<string>("");
   const [productDetails, setProductDetails] = useState<string>("");
   const [productQuantity, setProductQuantity] = useState<number>(0);
   const [productId, setProductId] = useState<string>("");
   const [isChanged, setIsChanged] = useState<boolean>(false);
+  const [formState, setFormState] = useState<string>("");
+
+  const switchForm = () => {
+    switch (window.location.pathname) {
+      case "/add-product":
+        setFormState("addProduct");
+        break;
+    }
+  };
+
+  const switchButtons = () => {
+    if (formState == "addProduct") {
+      return (
+        <input
+          type="button"
+          value="ADD PRODUCT"
+          className="btn btn--primary btn--l mt--80"
+          onClick={() => {
+            handleSubmitAdd();
+          }}
+        ></input>
+      );
+    } else {
+      return (
+        <div className="wrapper__edit">
+          <input
+            value="Save"
+            type="button"
+            onClick={() => {
+              handleSubmitEdit();
+            }}
+            className="btn btn--primary btn--l mt--80"
+          ></input>
+          <button
+            onClick={() => {
+              handleDelete();
+            }}
+            className="btn btn--tertiary btn--l mt--16"
+          >
+            Delete product
+          </button>
+        </div>
+      );
+    }
+  };
 
   const productService = new ProductService();
   const params = useParams();
@@ -33,12 +78,12 @@ const EditForm = () => {
         hideProgressBar: true,
         autoClose: 2000,
         transition: Flip,
-        theme: "dark",
+        theme: "colored",
       });
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmitEdit = async () => {
     try {
       if (
         productBarcode > 0 &&
@@ -62,7 +107,7 @@ const EditForm = () => {
           hideProgressBar: true,
           autoClose: 2500,
           transition: Flip,
-          theme: "dark",
+          theme: "colored",
         });
         navigate(`/products`, { replace: true });
       }
@@ -72,7 +117,42 @@ const EditForm = () => {
         hideProgressBar: true,
         autoClose: 2500,
         transition: Flip,
-        theme: "dark",
+        theme: "colored",
+      });
+    }
+  };
+  const handleSubmitAdd = async () => {
+    try {
+      if (
+        productBarcode > 0 &&
+        productName !== "" &&
+        productDetails !== "" &&
+        productQuantity > 0 &&
+        isChanged === true
+      ) {
+        await productService.createProduct({
+          barcode: productBarcode,
+          name: productName,
+          details: productDetails,
+          quantity: productQuantity,
+          id: productId,
+        });
+        toast.success("Product added.", {
+          position: "top-center",
+          hideProgressBar: true,
+          autoClose: 2500,
+          transition: Flip,
+          theme: "colored",
+        });
+        navigate(`/products`, { replace: true });
+      }
+    } catch {
+      toast.error("Failed to edit product.", {
+        position: "top-center",
+        hideProgressBar: true,
+        autoClose: 2500,
+        transition: Flip,
+        theme: "colored",
       });
     }
   };
@@ -84,21 +164,23 @@ const EditForm = () => {
         hideProgressBar: true,
         position: "top-center",
         autoClose: 2500,
-        theme: "dark",
+        theme: "colored",
       });
+      navigate(`/products`, { replace: true });
       fetchProduct();
     } catch (error) {
       toast.error("Failed to delete product.", {
         hideProgressBar: true,
         position: "top-center",
         autoClose: 2500,
-        theme: "dark",
+        theme: "colored",
       });
     }
   };
 
   useEffect(() => {
     fetchProduct();
+    switchForm();
   }, []);
 
   return (
@@ -168,26 +250,10 @@ const EditForm = () => {
           />
         </div>
 
-        <input
-          value="Save"
-          type="button"
-          onClick={() => {
-            handleSubmit();
-          }}
-          className="btn btn--primary btn--l mt--80"
-        ></input>
-        <button
-          onClick={() => {
-            handleDelete();
-            navigate(`/products`, { replace: true });
-          }}
-          className="btn btn--tertiary btn--l mt--16"
-        >
-          Delete product
-        </button>
+        {switchButtons()}
       </form>
     </div>
   );
 };
 
-export default EditForm;
+export default ProductForm;

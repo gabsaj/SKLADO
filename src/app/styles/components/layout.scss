@@ -24,18 +24,7 @@ components: nav.scss
   font-size: 40px;
   display: flex;
 }
-.wrapper {
-  &__products {
-    display: flex;
-    justify-content: flex-end;
-  }
 
-  &__welcome {
-    width: 450px;
-    display: flex;
-    flex-direction: column;
-  }
-}
 .search__container {
   border: 1px solid $black;
   width: 300px;

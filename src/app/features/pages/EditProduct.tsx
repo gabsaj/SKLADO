@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useNavigate } from "react-router-dom";
-import EditForm from "../components/EditForm";
+import ProductForm from "../components/ProductForm";
 import Sidebar from "../components/Sidebar";
 
 const EditProducts = () => {
@@ -21,7 +21,7 @@ const EditProducts = () => {
             <i className="icon icon--base icon--back icon--blue"></i>
             <div>Back</div>
           </div>
-          <EditForm />
+          <ProductForm />
         </div>
       </div>
     </div>

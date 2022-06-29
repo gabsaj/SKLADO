@@ -27,7 +27,7 @@ const ProductsPage = () => {
         autoClose: 2500,
         hideProgressBar: true,
         transition: Flip,
-        theme: "dark",
+        theme: "colored",
       });
     }
   };

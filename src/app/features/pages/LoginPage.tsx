@@ -15,7 +15,7 @@ const LoginPage = () => {
         toast.success("Login succesful.", {
           position: "top-center",
           hideProgressBar: true,
-          theme: "dark",
+          theme: "colored",
           transition: Flip,
           autoClose: 2500,
         });
@@ -25,7 +25,7 @@ const LoginPage = () => {
       toast.error("Login failed.", {
         position: "top-center",
         hideProgressBar: true,
-        theme: "dark",
+        theme: "colored",
         transition: Flip,
         autoClose: 2500,
       });
