@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Flip, toast } from "react-toastify";
 import ProductService from "../../services/productService";
@@ -6,32 +7,19 @@ import { Product } from "../../types/product";
 
 interface Props {
   product: Product;
+  fetchProducts: () => void;
 }
 
-const Table: React.FC<Props> = (props) => {
-  const { product } = props;
+const TableRow: React.FC<Props> = (props) => {
+  const { product, fetchProducts } = props;
   const productService = new ProductService();
-  const [productsList, setProductsList] = useState<Product[]>([]);
-
-  const handleFetch = async () => {
-    try {
-      const response = await productService.getProducts("name");
-      return response;
-    } catch (error) {
-      toast.error("Failed to get products", {
-        position: "top-center",
-        autoClose: 2500,
-        hideProgressBar: true,
-        transition: Flip,
-        theme: "dark",
-      });
-    }
-  };
 
   const handleDelete = async () => {
+    debugger;
     try {
       await productService.deleteProduct(product.id);
 
+      fetchProducts();
       toast.success("Product deleted.", {
         position: "top-center",
         hideProgressBar: true,
@@ -39,7 +27,6 @@ const Table: React.FC<Props> = (props) => {
         transition: Flip,
         theme: "dark",
       });
-      handleFetch();
     } catch {
       toast.error("Failed delete product.", {
         position: "top-center",
@@ -52,14 +39,20 @@ const Table: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    handleFetch();
+    fetchProducts();
   }, []);
 
   return (
     <tr key={product.id}>
-      <td className="pl--10">{product.barcode}</td>
-      <td className="pl--10">{product.name} </td>
-      <td className="pl--10">{product.quantity}</td>
+      <td className="pl--10 type--nunito type--nunito--wgt--light">
+        {product.barcode}
+      </td>
+      <td className="pl--10  type--nunito type--nunito--wgt--semibold">
+        {product.name}{" "}
+      </td>
+      <td className="pl--10 type--nunito type--nunito--wgt--regular">
+        {product.quantity}
+      </td>
       <td className="pl--10">
         <Link to={`/edit-product/${product.id}`}>
           <i className="icon icon--base icon--edit"></i>
@@ -75,4 +68,4 @@ const Table: React.FC<Props> = (props) => {
   );
 };
 
-export default Table;
+export default TableRow;

@@ -9,6 +9,7 @@ const EditForm = () => {
   const [productDetails, setProductDetails] = useState<string>("");
   const [productQuantity, setProductQuantity] = useState<number>(0);
   const [productId, setProductId] = useState<string>("");
+  const [isChanged, setIsChanged] = useState<boolean>(false);
 
   const productService = new ProductService();
   const params = useParams();
@@ -43,7 +44,8 @@ const EditForm = () => {
         productBarcode > 0 &&
         productName !== "" &&
         productDetails !== "" &&
-        productQuantity > 0
+        productQuantity > 0 &&
+        isChanged === true
       ) {
         await productService.updateProduct(
           {
@@ -62,6 +64,7 @@ const EditForm = () => {
           transition: Flip,
           theme: "dark",
         });
+        navigate(`/products`, { replace: true });
       }
     } catch {
       toast.error("Failed to edit product.", {
@@ -83,6 +86,7 @@ const EditForm = () => {
         autoClose: 2500,
         theme: "dark",
       });
+      fetchProduct();
     } catch (error) {
       toast.error("Failed to delete product.", {
         hideProgressBar: true,
@@ -100,7 +104,9 @@ const EditForm = () => {
   return (
     <div>
       <form className="form type--nunito">
-        <div className="form__title">Add new product</div>
+        <div className="form__title type--nunito type--nunito--wgt--semibold">
+          Edit product
+        </div>
         <div className="form__field">
           <label htmlFor="barcode">Barcode</label>
           <input
@@ -110,7 +116,10 @@ const EditForm = () => {
             placeholder="Barcode"
             id="barcode"
             className="input input--primary"
-            onChange={(e) => setProductBarcode(Number(e.target.value))}
+            onChange={(e) => {
+              setProductBarcode(Number(e.target.value));
+              setIsChanged(true);
+            }}
           />
         </div>
         <div className="form__field">
@@ -122,7 +131,10 @@ const EditForm = () => {
             id="name"
             className="input input--primary"
             value={productName}
-            onChange={(e) => setProductName(e.target.value)}
+            onChange={(e) => {
+              setProductName(e.target.value);
+              setIsChanged(true);
+            }}
           />
         </div>
         <div className="form__field">
@@ -134,7 +146,10 @@ const EditForm = () => {
             placeholder="Details"
             id="details"
             className="input input--primary"
-            onChange={(e) => setProductDetails(e.target.value)}
+            onChange={(e) => {
+              setProductDetails(e.target.value);
+              setIsChanged(true);
+            }}
           />
         </div>
         <div className="form__field">
@@ -146,20 +161,21 @@ const EditForm = () => {
             placeholder="0"
             id="quantity"
             className="input input--tertiary"
-            onChange={(e) => setProductQuantity(Number(e.target.value))}
+            onChange={(e) => {
+              setProductQuantity(Number(e.target.value));
+              setIsChanged(true);
+            }}
           />
         </div>
 
-        <button
-          type="submit"
+        <input
+          value="Save"
+          type="button"
           onClick={() => {
             handleSubmit();
-            navigate(`/products`, { replace: true });
           }}
           className="btn btn--primary btn--l mt--80"
-        >
-          Save
-        </button>
+        ></input>
         <button
           onClick={() => {
             handleDelete();

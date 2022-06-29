@@ -20,22 +20,22 @@ export default class ProductService extends BaseService {
 
   //delete product
 
-  async deleteProduct(id: string) {
-    const response = await this.instance.delete(`products/${id}`);
+  async deleteProduct(productId: string) {
+    const response = await this.instance.delete(`products/${productId}`);
     return response;
   }
 
   //fetch product by id
 
-  async fetchProductById(id: string): Promise<Product> {
-    const response = await this.instance.get(`products/${id}`);
+  async fetchProductById(productId: string): Promise<Product> {
+    const response = await this.instance.get(`products/${productId}`);
     return response.data;
   }
 
   //update product
 
-  async updateProduct(data: Product, id: string) {
-    const response = await this.instance.put(`products/${id}`, data);
+  async updateProduct(data: Product, productId: string) {
+    const response = await this.instance.put(`products/${productId}`, data);
     return response;
   }
 }

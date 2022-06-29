@@ -9,7 +9,7 @@ const ForgotPassword = () => {
         <img src={halfBoxes} className="layout__boxes--login" alt="boxes"></img>
         <div className="layout__main">
           <div className="mt--80 ml--32">
-            <div className="title type--montserrat type--wgt-- ">
+            <div className="title type--montserrat type--montserrat--wgt--semibold ">
               Forgot password?
               <img src={logoXs} className="layout__logo-s" alt="logo"></img>
             </div>

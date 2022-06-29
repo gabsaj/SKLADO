@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductService from "../../services/productService";
@@ -15,12 +16,7 @@ const AddProducts = () => {
 
   const handleSubmit = async () => {
     try {
-      if (
-        productBarcode > 0 &&
-        productName !== "" &&
-        productDetails !== "" &&
-        productQuantity > 0
-      ) {
+      if (productBarcode > 0 && productName !== "" && productQuantity > 0) {
         await productService.createProduct({
           barcode: productBarcode,
           name: productName,
@@ -35,6 +31,7 @@ const AddProducts = () => {
           transition: Flip,
           theme: "dark",
         });
+        navigate("/products");
       }
     } catch {
       toast.error("Failed to add product.", {
@@ -52,18 +49,20 @@ const AddProducts = () => {
       <div className="layout">
         <Sidebar />
         <div className="layout__main">
-          <div className="title type--montserrat mt--32 ml--40">
+          <div className="title type--montserrat type--montserrat--wgt--semibold mt--32 ml--40">
             Add Product
           </div>
           <div
             onClick={() => navigate(-1)}
-            className="flex type--nunito ml--40 mt--32"
+            className="btn flex type--nunito type--nunito--wgt--semibold ml--40 mt--32"
           >
             <i className="icon icon--base icon--back icon--blue"></i>
             <div>Back</div>
           </div>
-          <form className="form">
-            <div className="form__title">Add new product</div>
+          <form className="form type--nunito">
+            <div className="form__title type--nunito type--nunito--wgt--semibold">
+              Add new product
+            </div>
             <div className="form__field">
               <label htmlFor="barcode">Barcode</label>
               <input
@@ -108,16 +107,14 @@ const AddProducts = () => {
                 onChange={(e) => setProductQuantity(Number(e.target.value))}
               />
             </div>
-            <button
-              type="submit"
+            <input
+              type="button"
+              value="ADD PRODUCT"
+              className="btn btn--primary btn--l mt--80"
               onClick={() => {
                 handleSubmit();
-                navigate(`/products`, { replace: true });
               }}
-              className="btn btn--primary btn--l mt--80"
-            >
-              Add product
-            </button>
+            ></input>
           </form>
         </div>
       </div>

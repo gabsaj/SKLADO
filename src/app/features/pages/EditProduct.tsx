@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useNavigate } from "react-router-dom";
 import EditForm from "../components/EditForm";
-import ProductForm from "../components/EditForm";
 import Sidebar from "../components/Sidebar";
 
 const EditProducts = () => {
@@ -12,12 +11,12 @@ const EditProducts = () => {
       <div className="layout">
         <Sidebar />
         <div className="layout__main">
-          <div className="title type--montserrat mt--32 ml--40">
+          <div className="title type--montserrat type--montserrat--wgt--semibold mt--32 ml--40">
             Edit Product
           </div>
           <div
             onClick={() => navigate(-1)}
-            className="flex type--nunito ml--40 mt--32"
+            className="btn flex type--nunito type--nunito--wgt--semibold  ml--40 mt--32"
           >
             <i className="icon icon--base icon--back icon--blue"></i>
             <div>Back</div>

@@ -61,6 +61,9 @@ utils: icons.scss
   &--back {
     mask-image: url(../../assets/icons/back.svg);
   }
+  &--show {
+    mask-image: url(../../assets/icons/show.svg);
+  }
 
   //colors
   &--white {

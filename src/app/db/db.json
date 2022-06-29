@@ -36,13 +36,6 @@
       "id": "d5f5f472-2720-4797-ae54-42f8183cef1b"
     },
     {
-      "barcode": 77777777,
-      "name": "ProductName7",
-      "details": "ProductDetails7",
-      "quantity": 7,
-      "id": "6a52da80-f8e9-4858-b873-1182e49503dd"
-    },
-    {
       "barcode": 88888888,
       "name": "ProductName8",
       "details": "ProductDetails8",
@@ -69,13 +62,6 @@
       "details": "Kras chocolate",
       "quantity": 35,
       "id": "c525b01b-5643-4e25-b596-cd67953d94fc"
-    },
-    {
-      "barcode": 35301387,
-      "name": "Guinness",
-      "details": "Guinness can beer",
-      "quantity": 999,
-      "id": "176c714e-a786-4719-9d11-175ba90b1029"
     }
   ]
 }

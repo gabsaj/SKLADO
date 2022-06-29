@@ -5,13 +5,15 @@ import { toast, Flip } from "react-toastify";
 import ProductService from "../../services/productService";
 import { Product } from "../../types/product";
 import Sidebar from "../components/Sidebar";
-import Table from "../components/Table";
+import TableRow from "../components/TableRow";
+import { useNavigate } from "react-router-dom";
 
 const ProductsPage = () => {
   const [productsList, setProductsList] = useState<Product[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
   const [sortDirection, setSortDirection] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("");
+  const navigate = useNavigate();
 
   const productService = new ProductService();
 
@@ -61,6 +63,17 @@ const ProductsPage = () => {
     setSortBy(sortBy);
   };
 
+  const logOut = () => {
+    toast.success("Logged out", {
+      position: "top-center",
+      hideProgressBar: true,
+      autoClose: 2500,
+      theme: "colored",
+      transition: Flip,
+    });
+    navigate("/");
+  };
+
   useEffect(() => {
     fetchProducts();
   }, [sortDirection]);
@@ -73,28 +86,31 @@ const ProductsPage = () => {
             Start adding products!
           </div>
           <div className="wrapper__products type--nunito mr--32 mt--80">
-            <div className="search__container mr--16">
+            <div className="search__container mr--16 input input--secondary">
               <i className="icon  icon--base icon--search ml--16"></i>
               <input
                 onChange={(e) => handleSearch(e)}
                 placeholder="Search"
                 type="text"
-                className="input input--secondary  ml--16"
+                className="input ml--16"
               />
             </div>
             <Link
               to={"/add-product"}
               className="btn btn--secondary btn--s flex"
             >
+              <div className="ml--19">ADD PRODUCT</div>
               <i className="icon icon--base icon--plus icon--blue ml--16"></i>
-              <div className="ml--19">Add product</div>
             </Link>
+            <button
+              onClick={logOut}
+              className="btn btn--primary btn--m flex ml--16"
+            >
+              LOG OUT
+            </button>
           </div>
-          <div
-            className="
-          tablediv"
-          >
-            <table className="mt--80 type--nunito">
+          <div>
+            <table className="mt--80 mb--80 type--nunito">
               <thead>
                 <tr>
                   <th
@@ -104,15 +120,27 @@ const ProductsPage = () => {
                     }}
                   >
                     Barcode
-                    <i className="icon icon--base icon--sort icon--grey"></i>
+                    <i
+                      className={`icon icon--base icon--sort ${
+                        sortBy === "barcode" ? "icon--blue" : " icon--grey"
+                      } `}
+                    ></i>
                   </th>
                   <th className="pl--10" onClick={() => handleSort("name")}>
                     Name
-                    <i className="icon icon--base icon--sort icon--grey"></i>
+                    <i
+                      className={`icon icon--base icon--sort ${
+                        sortBy === "name" ? "icon--blue" : " icon--grey"
+                      } `}
+                    ></i>
                   </th>
                   <th className="pl--10" onClick={() => handleSort("quantity")}>
                     Quantity
-                    <i className="icon icon--base icon--sort icon--grey"></i>
+                    <i
+                      className={`icon icon--base icon--sort ${
+                        sortBy === "quantity" ? "icon--blue" : " icon--grey"
+                      } `}
+                    ></i>
                   </th>
                 </tr>
               </thead>
@@ -125,7 +153,11 @@ const ProductsPage = () => {
                   productsList
                     .filter(handleFilter)
                     .map((product) => (
-                      <Table key={product.id} product={product} />
+                      <TableRow
+                        key={product.id}
+                        product={product}
+                        fetchProducts={() => fetchProducts()}
+                      />
                     ))
                 )}
               </tbody>

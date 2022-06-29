@@ -15,13 +15,23 @@ components: btn.scss
   &--primary {
     background-color: $color--secondary;
     color: $white;
+    font-size: 14px;
+  }
+  &--add {
+    background-color: $color--secondary;
+    color: $white;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
   }
   &--secondary {
     border: 2px solid $color--secondary;
     color: $color--secondary;
+    background-color: #2a6dfe1a;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 18px;
   }
   &--tertiary {
     border: 2px solid $color--qaternary;

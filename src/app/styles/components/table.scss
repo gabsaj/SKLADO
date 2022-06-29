@@ -10,12 +10,14 @@ table {
     background-color: $white;
     color: $color--secondary;
     cursor: pointer;
+    font-size: 16px;
   }
   tr {
     height: 45px;
+    font-size: 14px;
   }
   & tr:nth-child(even) {
-    background-color: $grey;
+    background-color: $color--row;
   }
   & td:nth-child(4),
   td:nth-child(5) {
