@@ -4,9 +4,13 @@ import { BaseService } from "./baseService";
 export default class ProductService extends BaseService {
   //get products
 
-  async getProducts(sort: string, sortDirection?: string): Promise<Product[]> {
+  async getProducts(
+    sort: string,
+    page: number,
+    sortDirection?: string
+  ): Promise<Product[]> {
     const response = await this.instance.get(
-      `products?_sort=${sort}&_order=${sortDirection}`
+      `products?_sort=${sort}&_order=${sortDirection}&_page=${page}&_limit=10`
     );
     return response.data;
   }

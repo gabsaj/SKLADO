@@ -16,6 +16,9 @@ components: btn.scss
     background-color: $color--secondary;
     color: $white;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &--add {
     background-color: $color--secondary;

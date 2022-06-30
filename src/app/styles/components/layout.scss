@@ -1,8 +1,10 @@
 /* 
-components: nav.scss
+components: layout.scss
 */
 .layout {
+  width: 100%;
   display: flex;
+  overflow-y: hidden;
   &__side {
     background-color: $color--primary;
     display: flex;
@@ -18,6 +20,10 @@ components: nav.scss
     min-height: 100vh;
     height: 100%;
   }
+}
+
+.half__boxes {
+  height: 100vh;
 }
 
 .title {

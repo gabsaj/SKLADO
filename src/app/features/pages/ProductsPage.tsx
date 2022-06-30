@@ -13,13 +13,18 @@ const ProductsPage = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [sortDirection, setSortDirection] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("");
+  const [pageNumber, setPageNumber] = useState<number>(1);
   const navigate = useNavigate();
 
   const productService = new ProductService();
 
   const fetchProducts = async () => {
     try {
-      const response = await productService.getProducts(sortBy, sortDirection);
+      const response = await productService.getProducts(
+        sortBy,
+        pageNumber,
+        sortDirection
+      );
       setProductsList(response);
     } catch (error) {
       toast.error("Failed to get products", {
@@ -76,7 +81,7 @@ const ProductsPage = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [sortDirection]);
+  }, [sortBy, pageNumber, sortDirection]);
   return (
     <div>
       <div className="layout">
@@ -104,7 +109,7 @@ const ProductsPage = () => {
             </Link>
             <button
               onClick={logOut}
-              className="btn btn--primary btn--m flex ml--16"
+              className="btn btn--primary btn--m  ml--16"
             >
               LOG OUT
             </button>
@@ -147,10 +152,13 @@ const ProductsPage = () => {
               <tbody>
                 {productsList.length === 0 ? (
                   <tr>
-                    <td>No products</td>
+                    <td className="pl--10 type--nunito type--nunito--wgt--light">
+                      No products
+                    </td>
                   </tr>
                 ) : (
                   productsList
+
                     .filter(handleFilter)
                     .map((product) => (
                       <TableRow
@@ -162,6 +170,42 @@ const ProductsPage = () => {
                 )}
               </tbody>
             </table>
+            <div className="wrapper__pages">
+              <i
+                onClick={() => {
+                  pageNumber > 1
+                    ? setPageNumber(pageNumber - 1)
+                    : setPageNumber(pageNumber);
+                }}
+                className="icon icon--base icon--previous"
+              ></i>
+              <i
+                onClick={() => setPageNumber(1)}
+                className={`icon icon--base icon--1 ${
+                  pageNumber === 1 ? "icon--blue" : "icon--black"
+                }`}
+              ></i>
+              <i
+                onClick={() => setPageNumber(2)}
+                className={`icon icon--base icon--2 ${
+                  pageNumber === 2 ? "icon--blue" : "icon--black"
+                }`}
+              ></i>
+              <i
+                onClick={() => setPageNumber(3)}
+                className={`icon icon--base icon--3 ${
+                  pageNumber === 3 ? "icon--blue" : "icon--black"
+                }`}
+              ></i>
+              <i
+                onClick={() => {
+                  pageNumber < 3
+                    ? setPageNumber(pageNumber + 1)
+                    : setPageNumber(pageNumber);
+                }}
+                className="icon icon--base icon--next"
+              ></i>
+            </div>
           </div>
         </div>
       </div>

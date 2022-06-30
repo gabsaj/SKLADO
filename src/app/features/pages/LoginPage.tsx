@@ -46,7 +46,7 @@ const LoginPage = () => {
   return (
     <div className="layout">
       <div>
-        <img src={halfBoxes} alt="boxes" />
+        <img src={halfBoxes} className="half__boxes" alt="boxes" />
       </div>
       <div>
         <div className="mt--80 ml--32">
@@ -91,11 +91,12 @@ const LoginPage = () => {
             Forgot your password?
           </Link>
           <button
+            value="Login"
             onClick={() => handleLogin()}
             type="submit"
-            className="btn btn--primary btn--s mt--40"
+            className="btn btn--primary btn--m  mt--40"
           >
-            Login
+            <div>Login</div>
           </button>
           <div className="mt--24">
             Don't have an account yet?

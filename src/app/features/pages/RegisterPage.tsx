@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import halfBoxes from "../../assets/images/boxes-login.svg";
+import boxes from "../../assets/images/boxes-login.svg";
 import logoXs from "../../assets/images/logo--mini.svg";
 
 const RegisterPage = () => {
@@ -19,8 +19,8 @@ const RegisterPage = () => {
   return (
     <div>
       <div className="layout">
-        <img src={halfBoxes} className="layout__boxes--login" alt="boxes"></img>
-        <div className="layout__main">
+        <img src={boxes} className="half__boxes" alt="boxes"></img>
+        <div className="layout__login">
           <div className="mt--80 ml--32">
             <div className="title type--montserrat type--montserrat--wgt--semibold ">
               Register
@@ -36,17 +36,21 @@ const RegisterPage = () => {
           </div>
           <form className="form type--nunito">
             <div className="form__field">
-              <label htmlFor="full-name">Full Name*</label>
+              <label className="mb--8" htmlFor="full-name">
+                Full Name*
+              </label>
               <input
                 required
-                type="number"
+                type="text"
                 placeholder="Full Name"
                 id="full-name"
                 className="input input--primary"
               />
             </div>
             <div className="form__field">
-              <label htmlFor="email">Email*</label>
+              <label className="mb--8" htmlFor="email">
+                Email*
+              </label>
               <input
                 required
                 type="text"
@@ -56,7 +60,9 @@ const RegisterPage = () => {
               />
             </div>
             <div className="form__field">
-              <label htmlFor="username">Username*</label>
+              <label className="mb--8" htmlFor="username">
+                Username*
+              </label>
               <input
                 required
                 type="text"
@@ -66,7 +72,9 @@ const RegisterPage = () => {
               />
             </div>
             <div className="form__field">
-              <label htmlFor="password">Password*</label>
+              <label className="mb--8" htmlFor="password">
+                Password*
+              </label>
               <div className="input input--primary">
                 <input
                   required
@@ -82,13 +90,15 @@ const RegisterPage = () => {
               </div>
             </div>
             <div className="form__field">
-              <label htmlFor="quantity">Confirm Password*</label>
+              <label className="mb--8" htmlFor="confirmPassword">
+                Confirm Password*
+              </label>
               <div className="input input--primary">
                 <input
                   required
                   type={inputType}
                   placeholder="********"
-                  id="quantity"
+                  id="confirmPassword"
                   className="input "
                 />
                 <i
@@ -97,12 +107,12 @@ const RegisterPage = () => {
                 ></i>
               </div>
             </div>
-            <button type="submit" className="btn btn--primary btn--l mt--80">
+            <button type="submit" className="btn btn--primary btn--l mt--32">
               Register
             </button>
             <div className="mt--16">
-              Already have an account?{" "}
-              <Link className="form__link" to={"/"}>
+              Already have an account?
+              <Link className="ml--8 form__link" to={"/"}>
                 Login here
               </Link>
             </div>
