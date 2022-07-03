@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { toast, Flip } from "react-toastify";
 import ProductService from "../../services/productService";
 import { Product } from "../../types/product";
+import Pagination from "../components/Pagination";
 import Sidebar from "../components/Sidebar";
 import TableRow from "../components/TableRow";
-import { useNavigate } from "react-router-dom";
 
 const ProductsPage = () => {
   const [productsList, setProductsList] = useState<Product[]>([]);
@@ -14,18 +14,28 @@ const ProductsPage = () => {
   const [sortDirection, setSortDirection] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("");
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const navigate = useNavigate();
+  const [params, setParams] = useState({ page: 1, rpp: 10 });
+  const [count, setCount] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const productService = new ProductService();
 
+  const handlePaginate = (pageNumber: number) => {
+    setParams({ page: pageNumber, rpp: params.rpp });
+  };
+
   const fetchProducts = async () => {
     try {
+      setLoading(true);
       const response = await productService.getProducts(
+        params.page,
+        params.rpp,
         sortBy,
-        pageNumber,
         sortDirection
       );
-      setProductsList(response);
+      setCount(response.headers);
+      setProductsList(response.data);
+      setLoading(true);
     } catch (error) {
       toast.error("Failed to get products", {
         position: "top-center",
@@ -68,20 +78,10 @@ const ProductsPage = () => {
     setSortBy(sortBy);
   };
 
-  const logOut = () => {
-    toast.success("Logged out", {
-      position: "top-center",
-      hideProgressBar: true,
-      autoClose: 2500,
-      theme: "colored",
-      transition: Flip,
-    });
-    navigate("/");
-  };
-
   useEffect(() => {
     fetchProducts();
-  }, [sortBy, pageNumber, sortDirection]);
+  }, [sortBy, params.page, params.rpp, sortDirection]);
+
   return (
     <div>
       <div className="layout">
@@ -107,12 +107,6 @@ const ProductsPage = () => {
               <div className="ml--19">ADD PRODUCT</div>
               <i className="icon icon--base icon--plus icon--blue ml--16"></i>
             </Link>
-            <button
-              onClick={logOut}
-              className="btn btn--primary btn--m  ml--16"
-            >
-              LOG OUT
-            </button>
           </div>
           <div>
             <table className="mt--80 mb--80 type--nunito">
@@ -171,40 +165,12 @@ const ProductsPage = () => {
               </tbody>
             </table>
             <div className="wrapper__pages">
-              <i
-                onClick={() => {
-                  pageNumber > 1
-                    ? setPageNumber(pageNumber - 1)
-                    : setPageNumber(pageNumber);
-                }}
-                className="icon icon--base icon--previous"
-              ></i>
-              <i
-                onClick={() => setPageNumber(1)}
-                className={`icon icon--base icon--1 ${
-                  pageNumber === 1 ? "icon--blue" : "icon--black"
-                }`}
-              ></i>
-              <i
-                onClick={() => setPageNumber(2)}
-                className={`icon icon--base icon--2 ${
-                  pageNumber === 2 ? "icon--blue" : "icon--black"
-                }`}
-              ></i>
-              <i
-                onClick={() => setPageNumber(3)}
-                className={`icon icon--base icon--3 ${
-                  pageNumber === 3 ? "icon--blue" : "icon--black"
-                }`}
-              ></i>
-              <i
-                onClick={() => {
-                  pageNumber < 3
-                    ? setPageNumber(pageNumber + 1)
-                    : setPageNumber(pageNumber);
-                }}
-                className="icon icon--base icon--next"
-              ></i>
+              <Pagination
+                productsCount={Number(count)}
+                currentPage={params.page}
+                rpp={params.rpp}
+                handlePaginate={handlePaginate}
+              />
             </div>
           </div>
         </div>

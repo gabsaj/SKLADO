@@ -1,18 +1,24 @@
 import { Product } from "../types/product";
 import { BaseService } from "./baseService";
 
+interface Pages {
+  headers: string;
+  data: Product[];
+}
+
 export default class ProductService extends BaseService {
   //get products
 
   async getProducts(
-    sort: string,
     page: number,
+    rpp: number,
+    sort: string,
     sortDirection?: string
-  ): Promise<Product[]> {
+  ): Promise<Pages> {
     const response = await this.instance.get(
-      `products?_sort=${sort}&_order=${sortDirection}&_page=${page}&_limit=10`
+      `products?_sort=${sort}&_order=${sortDirection}&_page=${page}&_limit=${rpp}`
     );
-    return response.data;
+    return { headers: response.headers["x-total-count"], data: response.data };
   }
 
   //create product
