@@ -1,20 +1,6 @@
 {
   "products": [
     {
-      "barcode": 11111111,
-      "name": "ProductName1",
-      "details": "ProductDetails1",
-      "quantity": 1,
-      "id": "c6cb0942-00c6-43e7-9f7c-eb5e142e1009"
-    },
-    {
-      "barcode": 22222222,
-      "name": "ProductName2",
-      "details": "ProductDetails2",
-      "quantity": 2,
-      "id": "04512bc7-94fd-4b7d-a25a-85a77dced750"
-    },
-    {
       "barcode": 33333333,
       "name": "ProductName3",
       "details": "ProductDetails3",
@@ -139,13 +125,6 @@
       "details": "",
       "quantity": 65,
       "id": "TC05yHm"
-    },
-    {
-      "barcode": 38504201,
-      "name": "Apple",
-      "details": "",
-      "quantity": 702,
-      "id": "9cpVDpj"
     },
     {
       "barcode": 38504178,

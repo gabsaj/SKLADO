@@ -46,7 +46,10 @@ const ProductForm = () => {
           ></input>
           <button
             onClick={() => {
-              handleDelete();
+              {
+                handleDelete();
+                navigate(`/products`, { replace: true });
+              }
             }}
             className="btn btn--tertiary btn--l mt--16"
           >
@@ -165,7 +168,6 @@ const ProductForm = () => {
         autoClose: 2500,
         theme: "colored",
       });
-      navigate(`/products`, { replace: true });
       fetchProduct();
     } catch (error) {
       toast.error("Failed to delete product.", {

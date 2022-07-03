@@ -5,17 +5,7 @@ import logoXs from "../../assets/images/logo--mini.svg";
 
 const RegisterPage = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
-  const [inputType, setInputType] = useState<string>("");
 
-  const toggleShowPass = () => {
-    setShowPass((current) => !current);
-    if (showPass === true) {
-      setInputType("text");
-    } else {
-      setInputType("password");
-    }
-    return toggleShowPass;
-  };
   return (
     <div>
       <div className="layout">
@@ -78,13 +68,13 @@ const RegisterPage = () => {
               <div className="input input--primary">
                 <input
                   required
-                  type={inputType}
+                  type={`${showPass ? "text" : "password"} `}
                   placeholder="********"
                   id="password"
                   className="input "
                 />
                 <i
-                  onClick={() => toggleShowPass()}
+                  onClick={() => setShowPass(!showPass)}
                   className="icon icon--base icon--show mr--19"
                 ></i>
               </div>
@@ -96,13 +86,13 @@ const RegisterPage = () => {
               <div className="input input--primary">
                 <input
                   required
-                  type={inputType}
+                  type={`${showPass ? "text" : "password"} `}
                   placeholder="********"
                   id="confirmPassword"
                   className="input "
                 />
                 <i
-                  onClick={() => toggleShowPass()}
+                  onClick={() => setShowPass(!showPass)}
                   className="icon icon--base icon--show mr--19"
                 ></i>
               </div>

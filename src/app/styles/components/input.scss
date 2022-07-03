@@ -8,13 +8,16 @@ components: input.scss
   border-radius: 2px;
   padding-left: 12px;
   font-size: 16px;
-  width: calc(100% - 24px);
+  width: 100%;
   display: flex;
   align-items: center;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+  &input[type="number"] {
+    -moz-appearance: textfield;
   }
   &--primary {
     height: 48px;

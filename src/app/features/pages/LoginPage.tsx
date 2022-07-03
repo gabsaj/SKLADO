@@ -8,18 +8,7 @@ const LoginPage = () => {
   const [loginName, setLoginName] = useState<string>("");
   const [loginPassword, setLoginPassword] = useState<string>("");
   const [showPass, setShowPass] = useState<boolean>(false);
-  const [inputType, setInputType] = useState<string>("");
   const navigate = useNavigate();
-
-  const toggleShowPass = () => {
-    setShowPass((current) => !current);
-    if (showPass === true) {
-      setInputType("text");
-    } else {
-      setInputType("password");
-    }
-    return toggleShowPass;
-  };
 
   const handleLogin = () => {
     try {
@@ -76,13 +65,13 @@ const LoginPage = () => {
               <input
                 required
                 placeholder="********"
-                type={inputType}
+                type={`${showPass ? "text" : "password"}`}
                 id="password"
                 className="input"
                 onChange={(e) => setLoginPassword(e.target.value)}
               />
               <i
-                onClick={() => toggleShowPass()}
+                onClick={() => setShowPass(!showPass)}
                 className="icon icon--base icon--show mr--19"
               ></i>
             </div>
